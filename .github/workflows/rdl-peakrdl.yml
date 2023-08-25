@@ -29,31 +29,31 @@ jobs:
         run: python3 -m pip install peakrdl
       # Generate regBlock (RTL)
       - name: RTL generation (compressor)
-        uses: scalable-arch/rtl-actions/rdl-regblock@5e385e4894e0c7c90dbd63bcae97d5ba4a69bd97
+        uses: scalable-arch/rtl-actions/rdl-regblock@152f7bded3db1e21db43bda5929ef5d8ff5c44f8
         with:
-          rdl: design/registers/AIDC_LITE.rdl
-          cfg: design/registers/peakrdl.toml
-          cpuif: apb3-flat
+          rdl: ${{github.workspace}}/design/registers/AIDC_LITE.rdl
+          cfg: ${{github.workspace}}/design/registers/peakrdl.toml
           top: AIDC_LITE_COMP_CFG
-          out: design/sverilog
-      - name: RTL generation (decompressor)
-        uses: scalable-arch/rtl-actions/rdl-regblock@5e385e4894e0c7c90dbd63bcae97d5ba4a69bd97
-        with:
-          rdl: design/registers/AIDC_LITE.rdl
-          cfg: design/registers/peakrdl.toml
+          out: ${{github.workspace}}/design/sverilog
           cpuif: apb3-flat
+      - name: RTL generation (decompressor)
+        uses: scalable-arch/rtl-actions/rdl-regblock@152f7bded3db1e21db43bda5929ef5d8ff5c44f8
+        with:
+          rdl: ${{github.workspace}}/design/registers/AIDC_LITE.rdl
+          cfg: ${{github.workspace}}/design/registers/peakrdl.toml
           top: AIDC_LITE_DECOMP_CFG
-          out: design/sverilog
+          out: ${{github.workspace}}/design/sverilog
+          cpuif: apb3-flat
       # Generate HTML documents
       - name: HTML generation (compressor)
-        uses: scalable-arch/rtl-actions/rdl-html@5e385e4894e0c7c90dbd63bcae97d5ba4a69bd97
+        uses: scalable-arch/rtl-actions/rdl-html@152f7bded3db1e21db43bda5929ef5d8ff5c44f8
         with:
-          rdl: design/registers/AIDC_LITE.rdl
+          rdl: ${{github.workspace}}/design/registers/AIDC_LITE.rdl
           top: AIDC_LITE_COMP_CFG
       - name: HTML generation (decompressor)
-        uses: scalable-arch/rtl-actions/rdl-html@5e385e4894e0c7c90dbd63bcae97d5ba4a69bd97
+        uses: scalable-arch/rtl-actions/rdl-html@152f7bded3db1e21db43bda5929ef5d8ff5c44f8
         with:
-          rdl: design/registers/AIDC_LITE.rdl
+          rdl: ${{github.workspace}}/design/registers/AIDC_LITE.rdl
           top: AIDC_LITE_DECOMP_CFG
 #      - name: Commit changes
 #        run: |
