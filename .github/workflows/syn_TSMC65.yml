@@ -22,7 +22,7 @@ jobs:
           submodules: recursive
       # run synthesis and generate report in working directory/work.syn
       - name: Synthesis
-        uses: scalable-arch/rtl-actions/syn_TSMC65@8c4c9323490dfdc9cab12eebfb7038db1f9c3c70
+        uses: scalable-arch/rtl-actions/syn_TSMC65@1341761ca491922252823ab02c0e301c74958b98
       # output report on github action consoles
       - name: Report (Design, Timing, Area, Power)
-        uses: scalable-arch/rtl-actions/syn_report@8c4c9323490dfdc9cab12eebfb7038db1f9c3c70
+        uses: scalable-arch/rtl-actions/syn_report@1341761ca491922252823ab02c0e301c74958b98
