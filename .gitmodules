@@ -4,3 +4,4 @@
 [submodule "rtl-actions"]
 	path = rtl-actions
 	url = https://github.com/scalable-arch/rtl-actions
+	branch= syn_TSMC65_uses
