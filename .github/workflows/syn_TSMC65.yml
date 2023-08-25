@@ -25,4 +25,4 @@ jobs:
         uses: scalable-arch/rtl-actions/syn_TSMC65@4e23dc80289c03ca8ddf6bf14d962eac741d2df8
       # output report on github action consoles
       - name: Report (Design, TIming, Area, Power)
-        uses: scalable-arch/rtl-actions/syn_report@4e23dc80289c03ca8ddf6bf14d962eac741d2df8
+        uses: scalable-arch/rtl-actions/syn-report@4e23dc80289c03ca8ddf6bf14d962eac741d2df8
