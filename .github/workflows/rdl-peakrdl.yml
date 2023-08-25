@@ -29,27 +29,29 @@ jobs:
         run: python3 -m pip install peakrdl
       # Generate regBlock (RTL)
       - name: RTL generation (compressor)
-        uses: scalable-arch/rtl-actions/rdl-regblock@055c4e27d58774247732e5d33cc4029bd5cad37d
+        uses: scalable-arch/rtl-actions/rdl-regblock@5e385e4894e0c7c90dbd63bcae97d5ba4a69bd97
         with:
           rdl: design/registers/AIDC_LITE.rdl
           cfg: design/registers/peakrdl.toml
           cpuif: apb3-flat
           top: AIDC_LITE_COMP_CFG
+          out: design/sverilog
       - name: RTL generation (decompressor)
-        uses: scalable-arch/rtl-actions/rdl-regblock@055c4e27d58774247732e5d33cc4029bd5cad37d
+        uses: scalable-arch/rtl-actions/rdl-regblock@5e385e4894e0c7c90dbd63bcae97d5ba4a69bd97
         with:
           rdl: design/registers/AIDC_LITE.rdl
           cfg: design/registers/peakrdl.toml
           cpuif: apb3-flat
           top: AIDC_LITE_DECOMP_CFG
+          out: design/sverilog
       # Generate HTML documents
       - name: HTML generation (compressor)
-        uses: scalable-arch/rtl-actions/rdl-html@055c4e27d58774247732e5d33cc4029bd5cad37d
+        uses: scalable-arch/rtl-actions/rdl-html@5e385e4894e0c7c90dbd63bcae97d5ba4a69bd97
         with:
           rdl: design/registers/AIDC_LITE.rdl
           top: AIDC_LITE_COMP_CFG
       - name: HTML generation (decompressor)
-        uses: scalable-arch/rtl-actions/rdl-html@055c4e27d58774247732e5d33cc4029bd5cad37d
+        uses: scalable-arch/rtl-actions/rdl-html@5e385e4894e0c7c90dbd63bcae97d5ba4a69bd97
         with:
           rdl: design/registers/AIDC_LITE.rdl
           top: AIDC_LITE_DECOMP_CFG
