@@ -20,9 +20,9 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: recursive
-      # run synthesis and generate report in ${SYN_OUT}
+      # run synthesis and generate report in working directory/work.syn
       - name: Synthesis
-        uses: scalable-arch/rtl-actions/syn_TSMC65@590868988f691b7edfd8b9af88236c20fe637821
+        uses: scalable-arch/rtl-actions/syn_TSMC65@4c323b404d633dda70eedceeb97193738f7e39f8
       # output report on github action consoles
       - name: Report (Design, Timing, Area, Power)
-        uses: scalable-arch/rtl-actions/syn_report@590868988f691b7edfd8b9af88236c20fe637821
+        uses: scalable-arch/rtl-actions/syn_report@4c323b404d633dda70eedceeb97193738f7e39f8
