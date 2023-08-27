@@ -15,7 +15,7 @@ on:
 jobs:
   Design-Compiler:
     # runs on a server with Synopsys Design Compiler installed
-    runs-ons: self-hosted
+    runs-on: self-hosted
     steps:
       # checkout the repository (with its submodules) to the runner
       - name: Checkout code
