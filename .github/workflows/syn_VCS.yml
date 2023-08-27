@@ -26,7 +26,7 @@ jobs:
       - name: Synthesis
         uses: scalable-arch/rtl-actions/syn_VCS@ee93830aa7e5e93006bf53d2933dcc8e9cb187ef
         with:
-          process: TSMC65
+          process: UMC28
           out: $${{github.workspace}}/work.syn
       # cat output report on github action consoles
       - name: Report (Design, Timing, Area, Power)
