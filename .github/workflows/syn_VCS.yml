@@ -24,12 +24,12 @@ jobs:
           submodules: recursive
       # run synthesis and generate report in ${WORKING_DIR}/work.syn
       - name: Synthesis
-        uses: scalable-arch/rtl-actions/syn_VCS@d21280d1d1a8da5512a4cdb50f8930429521515f
+        uses: scalable-arch/rtl-actions/syn_VCS@daac1e850ca6e1a8c1100823107d6b7e3d98efe6
         with:
           process: UMC28
           out: $${{github.workspace}}/work.syn
       # cat output report on github action consoles
       - name: Report (Design, Timing, Area, Power)
-        uses: scalable-arch/rtl-actions/syn_report@d21280d1d1a8da5512a4cdb50f8930429521515f
+        uses: scalable-arch/rtl-actions/syn_report@daac1e850ca6e1a8c1100823107d6b7e3d98efe6
         with:
           out: $${{github.workspace}}/work.syn
