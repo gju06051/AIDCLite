@@ -16,6 +16,8 @@ jobs:
   Design-Compiler:
     # runs on a server with Synopsys Design Compiler installed
     runs-on: self-hosted
+    env:
+      SYN_PROCESS: UMC28
     steps:
       # checkout the repository (with its submodules) to the runner
       - name: Checkout code
@@ -26,7 +28,7 @@ jobs:
       - name: Synthesis
         uses: scalable-arch/rtl-actions/syn_VCS@829b32998bb22f0f5a5c0cb9f212e4664073779e
         with:
-          process: UMC28
+          process: ${{env.SYN_PROCESS}}
           out: $${{github.workspace}}/work.syn
       # cat output report on github action consoles
       - name: Report (Design, Timing, Area, Power)
