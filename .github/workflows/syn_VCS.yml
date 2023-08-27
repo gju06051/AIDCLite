@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 # workflow executed in a action_runner (self-hosted)
-# if you want to use another process(default TSMC65), you should change the process at line 30
+# if you want to use another process or out directory, change the environment variables L.20-21
 jobs:
   Design-Compiler:
     # runs on a server with Synopsys Design Compiler installed
@@ -32,7 +32,15 @@ jobs:
           process: ${{env.SYN_PROCESS}}
           out: ${{env.SYN_OUT_DIR}}
       # cat output report on github action consoles
-      - name: Report (Design, Timing, Area, Power)
-        uses: scalable-arch/rtl-actions/syn_report@829b32998bb22f0f5a5c0cb9f212e4664073779e
-        with:
-          out: ${{env.SYN_OUT_DIR}}
+      - name: Report (Design)
+        run: cat ${{env.SYN_OUT_DIR}}/*.design.rpt
+      - name: Report (Timing)
+        run: cat ${{env.SYN_OUT_DIR}}/*.timing.rpt
+      - name: Report (Area)
+        run: cat ${{env.SYN_OUT_DIR}}/*.area.rpt
+      - name: Report (Power)
+        run: cat ${{env.SYN_OUT_DIR}}/*.power.rpt
+      # - name: Report (Design, Timing, Area, Power)
+      #   uses: scalable-arch/rtl-actions/syn_report@829b32998bb22f0f5a5c0cb9f212e4664073779e
+      #   with:
+      #     out: ${{env.SYN_OUT_DIR}}
