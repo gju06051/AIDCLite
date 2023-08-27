@@ -18,6 +18,7 @@ jobs:
     runs-on: self-hosted
     env:
       SYN_PROCESS: UMC28
+      SYN_OUT_DIR: ${{github.workspace}}/work.syn
     steps:
       # checkout the repository (with its submodules) to the runner
       - name: Checkout code
@@ -29,9 +30,9 @@ jobs:
         uses: scalable-arch/rtl-actions/syn_VCS@829b32998bb22f0f5a5c0cb9f212e4664073779e
         with:
           process: ${{env.SYN_PROCESS}}
-          out: $${{github.workspace}}/work.syn
+          out: ${{env.SYN_OUT_DIR}}
       # cat output report on github action consoles
       - name: Report (Design, Timing, Area, Power)
         uses: scalable-arch/rtl-actions/syn_report@829b32998bb22f0f5a5c0cb9f212e4664073779e
         with:
-          out: $${{github.workspace}}/work.syn
+          out: ${{env.SYN_OUT_DIR}}
